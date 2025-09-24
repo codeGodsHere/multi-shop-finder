@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 244 75% 58%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -26,17 +26,35 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 244 75% 58%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 244 75% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium Design System */
+    --gradient-hero: linear-gradient(135deg, 244 75% 58%, 280 100% 70%);
+    --gradient-subtle: linear-gradient(180deg, 0 0% 100%, 244 20% 98%);
+    --gradient-card: linear-gradient(145deg, 0 0% 100%, 210 20% 98%);
+    
+    --hero-primary: 244 75% 58%;
+    --hero-secondary: 280 100% 70%;
+    --surface-elevated: 0 0% 100%;
+    --text-hero: 210 40% 98%;
+    --text-secondary: 215.4 16.3% 46.9%;
+    
+    --shadow-soft: 0 4px 6px -1px hsl(244 75% 58% / 0.1);
+    --shadow-elegant: 0 10px 25px -3px hsl(244 75% 58% / 0.15);
+    --shadow-premium: 0 20px 25px -5px hsl(244 75% 58% / 0.1), 0 10px 10px -5px hsl(244 75% 58% / 0.04);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +118,94 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-subtle);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-elevated {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Platform Button Styles */
+  .platform-btn {
+    transition: var(--transition-spring);
+    transform: translateY(0);
+  }
+  
+  .platform-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-premium);
+  }
+  
+  /* Loading Spinner */
+  .loading-spinner {
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

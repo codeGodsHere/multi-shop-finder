@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        hero: {
+          primary: "hsl(var(--hero-primary))",
+          secondary: "hsl(var(--hero-secondary))",
+        },
+        surface: {
+          elevated: "hsl(var(--surface-elevated))",
+        },
+        text: {
+          hero: "hsl(var(--text-hero))",
+          secondary: "hsl(var(--text-secondary))",
+        },
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        elegant: "var(--shadow-elegant)",
+        premium: "var(--shadow-premium)",
       },
       borderRadius: {
         lg: "var(--radius)",
